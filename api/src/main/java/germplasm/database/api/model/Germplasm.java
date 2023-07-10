@@ -1,9 +1,17 @@
 package germplasm.database.api.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Table(name = "germplasms")
+@Table(name = "germplasm")
 @Entity(name = "Germplasm")
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Germplasm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
