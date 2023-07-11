@@ -35,4 +35,11 @@ public class GermplasmController {
 
         return ResponseEntity.created(uri).body(germplasm);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity getGermplasmById(@PathVariable Integer id) {
+        var germplasm = germplasmService.getGermplasmById(id);
+
+        return ResponseEntity.ok(germplasm);
+    }
 }

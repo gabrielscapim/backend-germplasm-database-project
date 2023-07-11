@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 @Service
@@ -32,5 +34,12 @@ public class GermplasmService {
         germplasmRepository.save(germplasm);
 
         return germplasm;
+    }
+
+    public DataDetailingGermplasmDTO getGermplasmById(Integer id) {
+        System.out.println(id);
+        var germplasmFromDataBase = germplasmRepository.getReferenceById(id);
+
+        return new DataDetailingGermplasmDTO(germplasmFromDataBase);
     }
 }
