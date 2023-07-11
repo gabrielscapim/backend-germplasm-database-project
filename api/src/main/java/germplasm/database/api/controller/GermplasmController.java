@@ -55,4 +55,14 @@ public class GermplasmController {
 
         return ResponseEntity.status(204).build();
     }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity updateGermplasmById(
+            @PathVariable Integer id,
+            @RequestBody @Valid DataAddGermplasmDTO dataAddGermplasmDTO
+    ) {
+        germplasmService.updateGermplasmById(id, dataAddGermplasmDTO);
+        return ResponseEntity.ok().build();
+    }
 }

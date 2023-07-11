@@ -52,4 +52,12 @@ public class GermplasmService {
         germplasmToDelete.delete();
         return null;
     }
+
+    public DataDetailingGermplasmDTO updateGermplasmById(Integer id, DataAddGermplasmDTO dataAddGermplasmDTO) {
+        var germplasmToUpdate = germplasmRepository.getReferenceById(id);
+
+        germplasmToUpdate.update(dataAddGermplasmDTO);
+
+        return new DataDetailingGermplasmDTO(germplasmToUpdate);
+    }
 }
