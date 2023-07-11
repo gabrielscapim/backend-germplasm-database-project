@@ -1,5 +1,6 @@
 package germplasm.database.api.service;
 
+import germplasm.database.api.dto.DataAddGermplasmDTO;
 import germplasm.database.api.dto.DataDetailingGermplasmDTO;
 import germplasm.database.api.model.Germplasm;
 import germplasm.database.api.repository.GermplasmRepository;
@@ -23,5 +24,13 @@ public class GermplasmService {
         germplasmsFromDatabase.stream().forEach(germplasm -> allGermplasms.add(new DataDetailingGermplasmDTO(germplasm)));
 
         return allGermplasms;
+    }
+
+    public Germplasm addGermplasm(DataAddGermplasmDTO dataAddGermplasmDTO) {
+        var germplasm = new Germplasm(dataAddGermplasmDTO);
+
+        germplasmRepository.save(germplasm);
+
+        return germplasm;
     }
 }
