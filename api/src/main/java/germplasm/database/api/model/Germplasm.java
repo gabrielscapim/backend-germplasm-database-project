@@ -344,4 +344,8 @@ public class Germplasm {
         this.espigaPigmentacaoAntocianinicaDasGlumasDoSabugo = dataAddGermplasmDTO.espigaPigmentacaoAntocianinicaDasGlumasDoSabugo();
         this.informacoesAdicionais = dataAddGermplasmDTO.informacoesAdicionais();
     }
+
+    public void delete() {
+        this.deletado = true;
+    }
 }

@@ -5,13 +5,11 @@ import germplasm.database.api.dto.DataDetailingGermplasmDTO;
 import germplasm.database.api.model.Germplasm;
 import germplasm.database.api.repository.GermplasmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class GermplasmService {
@@ -37,9 +35,21 @@ public class GermplasmService {
     }
 
     public DataDetailingGermplasmDTO getGermplasmById(Integer id) {
-        System.out.println(id);
         var germplasmFromDataBase = germplasmRepository.getReferenceById(id);
 
         return new DataDetailingGermplasmDTO(germplasmFromDataBase);
+    }
+
+    public Map<String, String> deleteGermplasmById(Integer id) {
+        var germplasmToDelete = germplasmRepository.getReferenceById(id);
+
+        if (germplasmToDelete.getDeletado() == true) {
+            Map<String, String> message = new HashMap<String, String>();
+            message.put("message", "Germoplasma já foi excluído");
+            return message;
+        }
+
+        germplasmToDelete.delete();
+        return null;
     }
 }
