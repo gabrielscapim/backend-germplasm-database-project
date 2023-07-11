@@ -18,10 +18,10 @@ public class GermplasmService {
     GermplasmRepository germplasmRepository;
 
     public Iterable<DataDetailingGermplasmDTO> getAllGermplasms() {
-        var germplasmsFromDatabase = germplasmRepository.findAll();
+        var germplasmsFromDatabase = germplasmRepository.findAllByDeletadoFalse();
         ArrayList<DataDetailingGermplasmDTO> allGermplasms = new ArrayList<>();
 
-        germplasmsFromDatabase.stream().forEach(germplasm -> allGermplasms.add(new DataDetailingGermplasmDTO(germplasm)));
+        germplasmsFromDatabase.forEach(germplasm -> allGermplasms.add(new DataDetailingGermplasmDTO(germplasm)));
 
         return allGermplasms;
     }
