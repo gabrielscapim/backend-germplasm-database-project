@@ -16,8 +16,9 @@ public class GermplasmController {
     private GermplasmService germplasmService;
 
     @GetMapping
-    public ResponseEntity getAllGermplasms(@PageableDefault(size = 20, sort={ "id" }) Pageable pageable) {
-        return ResponseEntity.ok(germplasmService.getAllGermplasms(pageable));
+    public ResponseEntity getAllGermplasms(
+    ) {
+        return ResponseEntity.ok(germplasmService.getAllGermplasms());
     }
 
 }
