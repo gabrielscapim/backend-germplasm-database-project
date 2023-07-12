@@ -1,6 +1,8 @@
 package germplasm.database.api.controller;
 
 import germplasm.database.api.dto.AuthenticationDataDTO;
+import germplasm.database.api.model.User;
+import germplasm.database.api.service.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +20,15 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping
     public ResponseEntity login(@RequestBody @Valid AuthenticationDataDTO authenticationDataDTO) {
         var AuthenticationToken = new UsernamePasswordAuthenticationToken(authenticationDataDTO.login(), authenticationDataDTO.senha());
         var authentication = authenticationManager.authenticate(AuthenticationToken);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(tokenService.generateToken((User) authentication.getPrincipal()));
     }
 
 }
