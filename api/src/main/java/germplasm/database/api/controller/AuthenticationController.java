@@ -1,6 +1,7 @@
 package germplasm.database.api.controller;
 
 import germplasm.database.api.dto.AuthenticationDataDTO;
+import germplasm.database.api.dto.TokenDTO;
 import germplasm.database.api.model.User;
 import germplasm.database.api.service.TokenService;
 import jakarta.validation.Valid;
@@ -28,7 +29,9 @@ public class AuthenticationController {
         var AuthenticationToken = new UsernamePasswordAuthenticationToken(authenticationDataDTO.login(), authenticationDataDTO.senha());
         var authentication = authenticationManager.authenticate(AuthenticationToken);
 
-        return ResponseEntity.ok(tokenService.generateToken((User) authentication.getPrincipal()));
+        var token = tokenService.generateToken((User) authentication.getPrincipal());
+
+        return ResponseEntity.ok(new TokenDTO(token));
     }
 
 }
