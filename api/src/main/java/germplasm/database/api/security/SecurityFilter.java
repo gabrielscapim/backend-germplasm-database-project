@@ -28,6 +28,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         var token = getToken(request);
 
         if (token != null) {
+            System.out.println(token);
             var subject = tokenService.getSubject(token);
             var user = userRepository.findByLogin(subject);
             var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
@@ -42,7 +43,8 @@ public class SecurityFilter extends OncePerRequestFilter {
         var authorizationHeader = request.getHeader("Authorization");
 
         if (authorizationHeader != null) {
-            return authorizationHeader.replace("Bearer", "");
+            System.out.println(authorizationHeader);
+            return authorizationHeader.replace("Bearer ", "");
         }
 
         return null;

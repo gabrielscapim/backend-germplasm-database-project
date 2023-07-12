@@ -1,4 +1,4 @@
 package germplasm.database.api.dto;
 
-public record AuthenticationDataDTO(String login, String senha) {
+public record AuthenticationDataDTO(String login, String password) {
 }
