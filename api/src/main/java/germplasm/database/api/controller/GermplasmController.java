@@ -1,20 +1,18 @@
 package germplasm.database.api.controller;
 
 import germplasm.database.api.dto.DataAddGermplasmDTO;
-import germplasm.database.api.model.Germplasm;
-import germplasm.database.api.repository.GermplasmRepository;
 import germplasm.database.api.service.GermplasmService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/germplasm")
+@SecurityRequirement(name = "bearer-key")
 public class GermplasmController {
 
     @Autowired
