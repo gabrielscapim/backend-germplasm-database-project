@@ -3,6 +3,8 @@ package germplasm.database.api.dto;
 import germplasm.database.api.model.Germplasm;
 
 public record DataDetailingGermplasmDTO(
+
+        Integer id,
         String nome,
         String tipoDeMaterialGenetico,
         String texturaDoGrao,
@@ -87,6 +89,7 @@ public record DataDetailingGermplasmDTO(
 
     public DataDetailingGermplasmDTO(Germplasm germplasm) {
         this(
+                germplasm.getId(),
                 germplasm.getNome(),
                 germplasm.getTipoDeMaterialGenetico(),
                 germplasm.getTexturaDoGrao(),
