@@ -2,7 +2,9 @@
 
 O projeto Germplasm Database consiste no desenvolvimento de uma aplicação para gerenciamento de germoplasma para um Pesquisador do Departamento de Agronomia da Universidade Estadual de Maringá.
 
-O backend da aplicação é uma API REST capaz de realizar um CRUD dos germoplasmas presentes no banco de dados.
+O back-end da aplicação é uma API REST capaz de realizar um CRUD dos germoplasmas presentes no banco de dados.
+
+O front-end da aplicação pode ser acessado clicando <a href="https://github.com/gabrielscapim/frontend-germplasm-database-project" target="_blank">aqui</a>.
 
 ## ⚙️ Funcionalidades
 
@@ -20,4 +22,3 @@ O backend da aplicação é uma API REST capaz de realizar um CRUD dos germoplas
 
 ## ✅ Demonstração
 
-A aplicação desenvolvida pode ser acessada clicando <a href="https://off-grid-calculator.vercel.app/" target="_blank">aqui</a>.
