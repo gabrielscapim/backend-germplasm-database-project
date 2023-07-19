@@ -1,6 +1,6 @@
 # 💻 Sobre o projeto
 
-O projeto Germplasm Database consiste no desenvolvimento de uma aplicação para gerenciamento de germoplasma para um Pesquisador do Departamento de Agronomia da Universidade Estadual de Maringá.
+O projeto Germplasm Database consiste no desenvolvimento de uma aplicação para gerenciamento de germoplasmas para um Pesquisador do Departamento de Agronomia da Universidade Estadual de Maringá.
 
 O back-end da aplicação é uma API REST capaz de realizar um CRUD dos germoplasmas presentes no banco de dados.
 
